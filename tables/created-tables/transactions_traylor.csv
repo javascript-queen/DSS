@@ -1,0 +1,11 @@
+"transaction_id","customer_id","transaction_date","online_order","order_status","product_id","list_price","standard_cost"
+1,2950,2017-02-25,false,Approved,2,71.49,53.62
+2,3120,2017-05-21,true,Approved,3,2091.47,388.92
+3,37,2017-10-16,false,Approved,402,1793.43,248.82
+4,88,2017-08-31,false,Approved,3135,1198.46,381.10
+5,78,2017-10-01,true,Approved,787,1765.30,709.48
+6,25,2017-03-08,true,Approved,2339,1538.99,829.65
+7,22,2017-04-21,true,Approved,1542,60.34,45.26
+8,15,2017-07-15,false,Approved,2459,1292.84,13.44
+9,67,2017-08-10,false,Approved,1305,1071.23,380.74
+10,12,2017-08-30,true,Approved,3262,1231.15,161.60
