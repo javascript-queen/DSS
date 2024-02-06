@@ -21,11 +21,10 @@
 ```inserted-data-screens``` - папка со скриншотами выполнения работы с DBeaver
 
 ### Файлы папки ```tables```:
-
-customer_and_transaction__2_.xlsx
 ```created-tables``` - папка с итоговыми таблицами csv
 ```screenshots``` - скриншоты таблиц из DBeaver
 ```customer_and_transaction__2_.xlsx``` - исходный файл
+```traylor-tables-creation.png``` - скрин этапа создания таблиц в DBeaver
 
 
 #### Цель домашней работы:
