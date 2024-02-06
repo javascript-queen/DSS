@@ -21,39 +21,39 @@ CREATE TABLE Transactions (
 
 -- Создание таблицы "Customers"
 CREATE TABLE Customers (
-	customer_id INT PRIMARY KEY,
-	first_name VARCHAR(255),
-	last_name VARCHAR(255),
-	gender VARCHAR(1),
-	DOB DATE,
-	job_title_id INT,
-	wealth_segment VARCHAR(255),
-	deceased_indicator VARCHAR(1),
-	owns_car VARCHAR(3)
+  customer_id INT PRIMARY KEY,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NULL,
+  gender VARCHAR(1) NOT NULL,
+  DOB DATE NOT NULL,
+  job_title_id INT NULL,
+  wealth_segment VARCHAR(255) NOT NULL,
+  deceased_indicator VARCHAR(1) NOT NULL,
+  owns_car VARCHAR(3) NOT NULL
 );
 
 -- Создание таблицы "Jobs"
 CREATE TABLE Jobs (
-	job_title_id INT PRIMARY KEY,
-	job_title VARCHAR(255),
-	job_industry_category VARCHAR(255)
+  job_title_id INT PRIMARY KEY,
+  job_title VARCHAR(255) NULL,
+  job_industry_category VARCHAR(255) NULL
 );
 
 -- Создание таблицы "Addresses"
 CREATE TABLE Addresses (
-	customer_id INT,
-	address VARCHAR(255),
-	postcode VARCHAR(20),
-	state VARCHAR(255),
-	country_id INT,
-	property_valuation INT
+  address_id SERIAL PRIMARY KEY,
+  customer_id INT NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  postcode VARCHAR(20) NOT NULL,
+  state VARCHAR(255) NOT NULL,
+  country_id INT NOT NULL,
+  property_valuation INT NOT NULL
 );
 
 -- Создание таблицы "Countries"
 CREATE TABLE Countries (
-	country_id INT PRIMARY KEY,
-	country_name VARCHAR(255)
-);
+  country_id INT PRIMARY KEY,
+  country_name VARCHAR(255) NOT NULL
 
 -- Вставка данных в таблицу "Products"
 INSERT INTO Products (product_id, brand, product_line, product_class, product_size)
