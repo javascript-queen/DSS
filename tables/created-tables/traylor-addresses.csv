@@ -1,0 +1,11 @@
+"address_id","customer_id","address","postcode","state","country_id","property_valuation"
+1,1,"060 Morning Avenue","2016",New South Wales,1,10
+2,2,"6 Meadow Vale Court","2153",New South Wales,1,10
+3,3,"0 Holy Cross Court","4211",QLD,1,9
+4,4,"17979 Del Mar Point","2448",New South Wales,1,4
+5,5,"9 Oakridge Court","3216",VIC,1,9
+6,6,"4 Delaware Trail","2210",New South Wales,1,9
+7,7,"49 Londonderry Lane","2650",New South Wales,1,4
+8,8,"97736 7th Trail","2023",New South Wales,1,12
+9,9,"93405 Ludington Park","3044",VIC,1,8
+10,10,"44339 Golden Leaf Alley","4557",QLD,1,4
