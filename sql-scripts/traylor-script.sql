@@ -11,12 +11,12 @@ CREATE TABLE Products (
 CREATE TABLE Transactions (
 	transaction_id INT PRIMARY KEY,
 	customer_id INT NOT NULL,
-    transaction_date DATE NOT NULL,
-    online_order BOOLEAN NOT NULL,
-    order_status VARCHAR(255) NOT NULL,
-    product_id INT,
-    list_price DECIMAL(10, 2) NOT NULL,
-    standard_cost DECIMAL(10, 2) NOT null
+    	transaction_date DATE NOT NULL,
+    	online_order BOOLEAN NOT NULL,
+   	order_status VARCHAR(255) NOT NULL,
+    	product_id INT,
+    	list_price DECIMAL(10, 2) NOT NULL,
+    	standard_cost DECIMAL(10, 2) NOT null
 );
 
 -- Вставка данных в таблицу "Products"
