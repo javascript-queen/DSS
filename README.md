@@ -10,21 +10,21 @@
 
 ### Файлы папки ```db```:
 
-```dbdiagram-code.sql``` - код для создания диаграммы в редакторе
-```dbdiagram.png``` - скриншот базы данных из редактора
-```normalization.md``` - объяснения нормализации таблиц
+- ```dbdiagram-code.sql``` - код для создания диаграммы в редакторе
+- ```dbdiagram.png``` - скриншот базы данных из редактора
+- ```normalization.md``` - объяснения нормализации таблиц
 
 ### Файлы папки ```sql-scripts```:
-```traylor-script.sql``` - скрипт для создания и заполнения таблиц в DBeaver
-```traylor-tables-creation.png``` - скриншот из DBeaver c созданными таблицами
-```traylor-inserted-data.png``` - скриншот из DBeaver c заполненными таблицами
-```inserted-data-screens``` - папка со скриншотами выполнения работы с DBeaver
+- ```traylor-script.sql``` - скрипт для создания и заполнения таблиц в DBeaver
+- ```traylor-tables-creation.png``` - скриншот из DBeaver c созданными таблицами
+- ```traylor-inserted-data.png``` - скриншот из DBeaver c заполненными таблицами
+- ```inserted-data-screens``` - папка со скриншотами выполнения работы с DBeaver
 
 ### Файлы папки ```tables```:
-```created-tables``` - папка с итоговыми таблицами csv
-```screenshots``` - скриншоты таблиц из DBeaver
-```customer_and_transaction__2_.xlsx``` - исходный файл
-```traylor-tables-creation.png``` - скрин этапа создания таблиц в DBeaver
+- ```created-tables``` - папка с итоговыми таблицами csv
+- ```screenshots``` - скриншоты таблиц из DBeaver
+- ```customer_and_transaction__2_.xlsx``` - исходный файл
+- ```traylor-tables-creation.png``` - скрин этапа создания таблиц в DBeaver
 
 
 #### Цель домашней работы:
