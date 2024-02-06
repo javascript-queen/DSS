@@ -11,12 +11,48 @@ CREATE TABLE Products (
 CREATE TABLE Transactions (
 	transaction_id INT PRIMARY KEY,
 	customer_id INT NOT NULL,
-    	transaction_date DATE NOT NULL,
-    	online_order BOOLEAN NOT NULL,
-   	order_status VARCHAR(255) NOT NULL,
-    	product_id INT,
-    	list_price DECIMAL(10, 2) NOT NULL,
-    	standard_cost DECIMAL(10, 2) NOT null
+	transaction_date DATE NOT NULL,
+	online_order BOOLEAN NOT NULL,
+	order_status VARCHAR(255) NOT NULL,
+	product_id INT,
+	list_price DECIMAL(10, 2) NOT NULL,
+	standard_cost DECIMAL(10, 2) NOT NULL
+);
+
+-- Создание таблицы "Customers"
+CREATE TABLE Customers (
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	gender VARCHAR(1),
+	DOB DATE,
+	job_title_id INT,
+	wealth_segment VARCHAR(255),
+	deceased_indicator VARCHAR(1),
+	owns_car VARCHAR(3)
+);
+
+-- Создание таблицы "Jobs"
+CREATE TABLE Jobs (
+	job_title_id INT PRIMARY KEY,
+	job_title VARCHAR(255),
+	job_industry_category VARCHAR(255)
+);
+
+-- Создание таблицы "Addresses"
+CREATE TABLE Addresses (
+	customer_id INT,
+	address VARCHAR(255),
+	postcode VARCHAR(20),
+	state VARCHAR(255),
+	country_id INT,
+	property_valuation INT
+);
+
+-- Создание таблицы "Countries"
+CREATE TABLE Countries (
+	country_id INT PRIMARY KEY,
+	country_name VARCHAR(255)
 );
 
 -- Вставка данных в таблицу "Products"
@@ -47,4 +83,49 @@ VALUES
 (9, 67, '2017-08-10', FALSE, 'Approved', 1305, 1071.23, 380.74),
 (10, 12, '2017-08-30', TRUE, 'Approved', 3262, 1231.15, 161.60);
 
+-- Вставка данных в таблицу "Countries"
+INSERT INTO Countries (country_id, country_name)
+VALUES
+(1, 'Australia');
 
+-- Вставка данных в таблицу "Jobs"
+INSERT INTO Jobs (job_title_id, job_title, job_industry_category)
+VALUES
+(1, 'Executive Secretary', 'Health'),
+(2, 'Administrative Officer', 'Financial Services'),
+(3, 'Recruiting Manager', 'Property'),
+(4, 'IT', NULL),
+(5, 'Senior Editor', NULL),
+(6, 'Retail', NULL),
+(7, NULL, 'Financial Services'),
+(8, 'Media Manager I', NULL),
+(9, 'Business Systems Development Analyst', 'Argiculture'),
+(10, 'Senior Quality Engineer', 'Financial Services');
+
+-- Вставка данных в таблицу "Customers"
+INSERT INTO Customers (customer_id, first_name, last_name, gender, DOB, job_title_id, wealth_segment, deceased_indicator, owns_car)
+VALUES
+(1, 'Laraine', 'Medendorp', 'F', '1953-10-12', 1, 'Mass Customer', 'N', 'Yes'),
+(2, 'Eli', 'Bockman', 'M', '1980-12-16', 2, 'Mass Customer', 'N', 'Yes'),
+(3, 'Arlin', 'Dearle', 'M', '1954-01-20', 3, 'Mass Customer', 'N', 'Yes'),
+(4, 'Talbot', NULL, 'M', '1961-10-03', 4, 'Mass Customer', 'N', 'No'),
+(5, 'Sheila-kathryn', 'Calton', 'F', '1977-05-13', 5, 'Affluent Customer', 'N', 'Yes'),
+(6, 'Curr', 'Duckhouse', 'M', '1966-09-16', 6, 'High Net Worth', 'N', 'Yes'),
+(7, 'Fina', 'Merali', 'F', '1976-02-23', 7, 'Affluent Customer', 'N', 'Yes'),
+(8, 'Rod', 'Inder', 'M', '1962-03-30', 8, 'Mass Customer', 'N', 'No'),
+(9, 'Mala', 'Lind', 'F', '1973-03-10', 9, 'Affluent Customer', 'N', 'Yes'),
+(10, 'Fiorenze', 'Birdall', 'F', '1988-10-11', 10, 'Mass Customer', 'N', 'Yes');
+
+-- Вставка данных в таблицу "Addresses"
+INSERT INTO Addresses (customer_id, address, postcode, state, country_id, property_valuation)
+VALUES
+(1, '060 Morning Avenue', '2016', 'New South Wales', 1, 10),
+(2, '6 Meadow Vale Court', '2153', 'New South Wales', 1, 10),
+(3, '0 Holy Cross Court', '4211', 'QLD', 1, 9),
+(4, '17979 Del Mar Point', '2448', 'New South Wales', 1, 4),
+(5, '9 Oakridge Court', '3216', 'VIC', 1, 9),
+(6, '4 Delaware Trail', '2210', 'New South Wales', 1, 9),
+(7, '49 Londonderry Lane', '2650', 'New South Wales', 1, 4),
+(8, '97736 7th Trail', '2023', 'New South Wales', 1, 12),
+(9, '93405 Ludington Park', '3044', 'VIC', 1, 8),
+(10, '44339 Golden Leaf Alley', '4557', 'QLD', 1, 4);
