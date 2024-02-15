@@ -89,4 +89,4 @@ from customer_20240101 c
 left join transaction_20240101 t on c.customer_id = t.customer_id 
 where (c.job_industry_category in ('IT', 'Health')) 
 and (to_date(t.transaction_date, 'DD.MM.YYYY') between '2017-07-07' and '2017-07-17')
-and (t.order_status = 'Approved')
+and (t.order_status = 'Approved');
