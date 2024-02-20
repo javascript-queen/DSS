@@ -57,7 +57,7 @@ group by t.brand;
 -- 4. Найти по всем клиентам сумму всех транзакций (list_price), максимум, минимум и количество транзакций, отсортировав результат 
 -- по убыванию суммы транзакций и количества клиентов. Выполните двумя способами: используя только group by и используя только оконные функции. 
 -- Сравните результат. — (2 балла)
-
+-- Вариант 1
 -- 4a. Используя только GROUP BY
 select customer_id, sum(list_price), max(list_price), min(list_price), count(*)
 from transaction_20240101 t 
@@ -65,12 +65,30 @@ group by customer_id
 order by sum(list_price) desc, count(transaction_id) desc
 
 -- 4b. Используя только оконные 
-select t.customer_id, 
-        sum(t.list_price) over (partition by customer_id) as t_sum, 
-        max(t.list_price) over (partition by customer_id) as t_max, 
-        min(t.list_price) over (partition by customer_id) as t_min,
-        count(t.list_price) over (partition by customer_id) as t_cnt  
+select customer_id, 
+        sum(list_price) over (partition by customer_id) as t_sum, 
+        max(list_price) over (partition by customer_id) as t_max, 
+        min(list_price) over (partition by customer_id) as t_min,
+        count(list_price) over (partition by customer_id) as t_cnt  
 from transaction_20240101 t 
+order by t_sum desc, t_cnt desc 
+
+-- Вариант 2
+-- 4a. Вариант 2 с join по таблице customer_20240101
+select  c.customer_id,sum(list_price), max(list_price), min(list_price), count(*)
+from transaction_20240101 t
+inner join customer_20240101 c on t.customer_id = c.customer_id
+group by c.customer_id
+order by sum(list_price) desc, count(transaction_id) desc
+
+-- 4b. Вариант 2 с join по таблице customer_20240101
+select c.customer_id,
+		sum(list_price) over (partition by c.customer_id) as t_sum, 
+        max(list_price) over (partition by c.customer_id) as t_max, 
+        min(list_price) over (partition by c.customer_id) as t_min,
+        count(list_price) over (partition by c.customer_id) as t_cnt  
+from transaction_20240101 t
+inner join customer_20240101 c on t.customer_id = c.customer_id
 order by t_sum desc, t_cnt desc 
 
 /*Первый запрос использует только GROUP BY, чтобы сгруппировать данные по customer_id, а затем применяет агрегатные функции (SUM, MAX, MIN, COUNT). Это приводит к 
@@ -84,6 +102,7 @@ order by t_sum desc, t_cnt desc
 повторяя данные о клиенте для каждой транзакции. Оба варианта имеют свои преимущества и недостатки, в зависимости от того, что требуется в конкретном случае. 
 Если нужна агрегированная информация по клиентам, то предпочтительнее использовать первый запрос. Если же нужна информация по каждой транзакции с данными о 
 клиенте для каждой из них, то второй запрос более подходящий.*/
+
 
 -- 5. Найти имена и фамилии клиентов с минимальной/максимальной суммой транзакций за весь период (сумма транзакций не может быть null). 
 -- Напишите отдельные запросы для минимальной и максимальной суммы. — (2 балла)
@@ -101,7 +120,6 @@ having SUM(t.list_price) = (
   ) sub
 )
 limit 1;
-
 
 -- 5b. MAX
 select c.first_name, c.last_name, SUM(t.list_price) as total_sum
@@ -128,7 +146,7 @@ from transaction_20240101 t)
 as first_transactions
 where row_num = 1;
 -- ORDER BY t.transaction_date ASC упорядочивает транзакции каждого клиента по дате, так что самая ранняя транзакция получит номер 1.
-
+    
 -- 7. Вывести имена, фамилии и профессии клиентов, между транзакциями которых был максимальный интервал (интервал вычисляется в днях) — (2 балла).
 with ranked_transactions as (
   select
