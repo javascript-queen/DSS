@@ -34,7 +34,6 @@ CREATE TABLE transaction_20240101 (
 );
 
 -- 1. Вывести распределение (количество) клиентов по сферам деятельности, отсортировав результат по убыванию количества. — (1 балл)
-
 select job_industry_category, count(customer_id) AS customer_count
 from customer_20240101
 group by job_industry_category
